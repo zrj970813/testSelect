@@ -1,37 +1,44 @@
 <template>
   <div class="block">
-    <el-select v-model="value" placeholder="请选择">
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value">
-      </el-option>
-    </el-select>
+    <eselect v-model="a1">
+      <eselectitem 
+      :value="item.value" 
+      :label="item.label" 
+      v-for="(item, index) in a1List" 
+      :key="index"></eselectitem>
+    </eselect>
+   
   </div>
 </template>
 
 <script>
+import eselect from './select/main'
+import eselectitem from './select/mian-item'
 export default {
   name: "HelloWorld",
+  components: {
+    eselect,
+    eselectitem
+  },
   data() {
     return {
       value: '',
-      options: [
-        { label: "长沙芙蓉区网点", value: "长沙芙蓉区网点", id: 15 },
-        { label: "长沙岳麓区网点", value: "长沙岳麓区网点", id: 16 },
-        { label: "长沙分拨中心", value: "长沙分拨中心", id: 17 },
-        { label: "朝阳区网点", value: "朝阳区网点", id: 18 },
-        { label: "海淀区网点", value: "海淀区网点", id: 19 },
-        { label: "昌平区网点", value: "昌平区网点", id: 20 },
-        { label: "北京分拨中心", value: "北京分拨中心", id: 21 },
-        { label: "南京玄武区网点", value: "南京玄武区网点", id: 22 },
-        { label: "湖北网点", value: "湖北网点", id: 32 },
-        { label: "南京江宁区网点", value: "南京江宁区网点", id: 233 },
-        { label: "上海黄埔网点", value: "上海黄埔网点", id: 248 }
-      ]
+      a1: '',
+      a1List: [{
+        label: 1,
+        value: 1
+      }, {
+        label: 2,
+        value: 2
+      }],
+
+      
     };
-  }
+  },
+  watch: {
+    a1() {
+    }
+  },
 };
 </script>
 
