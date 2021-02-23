@@ -27,9 +27,7 @@ export default {
   watch: {
     show(val) {
       if (val) {
-        setTimeout(() => {
-          window.addEventListener('click', this.callback, false)
-        }, 1000)
+        window.addEventListener('click', this.callback, false)
       } else {
         window.removeEventListener('click', this.callback)
       }
